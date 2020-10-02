@@ -48,11 +48,17 @@ void ProcessPenInput(HWND hWnd, POINTER_PEN_INFO& penInfo)
 
 LRESULT WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass, DWORD_PTR dwRefData)
 {
+	UINT32 downPointerId;
+	float micCheck = 0.0f;
+	bool pointerDown{ false };
 	switch (uMsg)
 	{
+	case WM_POINTERDOWN:
+		 //downPointerId= GET_POINTERID_WPARAM(wParam);
+		micCheck = 222.22f;
+		// Put something extra here for pointer down, see if we can catch the first tap, or just report things
 	case WM_POINTERENTER:
 	case WM_POINTERLEAVE:
-	case WM_POINTERDOWN:
 	case WM_POINTERUP:
 	case WM_POINTERUPDATE:
 		UINT32 pointerId = GET_POINTERID_WPARAM(wParam);
